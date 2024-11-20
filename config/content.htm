@@ -13,8 +13,7 @@
 <p>個人網站: <a href="https://github.com/mdecp2024/hw-zxc41323234">https://github.com/mdecp2024/hw-zxc41323234</a></p>
 <p>其他資訊:</p>
 <p style="padding-left: 30px;"><a href="/downloads/cd2023_pj3ag4_zmq_football_4.7.7z">cd2023_pj3ag4_zmq_football_4.7.7z</a></p>
-<p style="padding-left: 30px;"><a href="https://localhost:9446/downloads/cd2024_2b_g6_steel_ball_platform_nxopen_copsim.7z">cd2024_2b_g6_steel_ball_platform_nxopen_copsim.7z</a></p>
-<h1>Attendance</h1>
+<p style="padding-left: 30px;"><a href="https://localhost:9446/downloads/cd2024_2b_g6_steel_ball_platform_nxopen_copsim.7z">cd2024_2b_g6_steel_ball_platform_nxopen_copsim.7z</a></p><h1>Attendance</h1>
 <p>出席 (10%) - 自行舉證評分</p>
 <p>自行利用 Github commits 提交記錄評分.</p>
 <p></p>
@@ -40,7 +39,9 @@
 <h2>HW 1 Exam</h2>
 <p>每六人為一組進行協同程式練習</p>
 <p>透過 Jupyterlab 協同網頁, 輪流指定各組編寫 Topic 1 相關的程式練習, 以及網頁內容 (localhost 與 Codespaces 環境)編輯.</p>
-<h3>w7</h3>
+<p>每六人為一組進行協同程式練習</p>
+<p>透過 Jupyterlab 協同網頁, 輪流指定各組編寫 HW 3 相關的程式練習, 以及網頁內容 (localhost 與 Codespaces 環境)編輯.</p>
+<p></p><h3>w7</h3>
 <p></p>
 <p>以下影片說明如何在作業網站加入Bython，同時練習print與for迴圈的用法</p>
 <p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/OX3gu4eDyFo" width="560"></iframe></p>
@@ -61,8 +62,7 @@
 <p>完成上述流程整理後, 請將 HW3 自評分數輸入 cp2024 自評表單中.</p>
 <h2>HW 3 Exam</h2>
 <p>每六人為一組進行協同程式練習</p>
-<p>透過 Jupyterlab 協同網頁, 輪流指定各組編寫 HW 3 相關的程式練習, 以及網頁內容 (localhost 與 Codespaces 環境)編輯.</p>
-<h3>w6</h3>
+<p>透過 Jupyterlab 協同網頁, 輪流指定各組編寫 HW 3 相關的程式練習, 以及網頁內容 (localhost 與 Codespaces 環境)編輯.</p><h3>w6</h3>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">#help(range)
 for i in range(1,5):
     print(i)
@@ -82,7 +82,25 @@ print_number_pyramid(rows)</pre>
 *********
 </pre>
 <p></p>
-<h1>HW 4</h1>
+<h3>w11</h3>
+<p>第一題</p>
+<p># 10x10 grid size<br/>width = 10<br/>height = 10</p>
+<p># Circle center and radius<br/>h, k = 5, 5 # Circle center (h, k)<br/>r = 4 # Circle radius</p>
+<p># Loop through each point in the grid<br/>for y in range(height):<br/>for x in range(width):<br/># Check if the point is within the circle using the equation<br/>if (x - h) ** 2 + (y - k) ** 2 &lt;= r ** 2:<br/>print("*", end="") # Print "*" if within the circle<br/>else:<br/>print(" ", end="") # Print space if outside the circle<br/>print() # Move to the next line</p>
+<p>第二題</p>
+<p>from browser import document, html, window</p>
+<p># 畫布設置<br/>canvas = html.CANVAS(width=300, height=300)<br/>document &lt;= canvas<br/>ctx = canvas.getContext('2d')</p>
+<p># 方格的大小<br/>grid_size = 30<br/>width = 10 # 方格數量<br/>height = 10</p>
+<p># 圓心與半徑<br/>h, k = 5, 5<br/>r = 4</p>
+<p># 繪製方格<br/>def draw_grid():<br/> ctx.strokeStyle = "gray"<br/> for x in range(0, width * grid_size, grid_size):<br/> for y in range(0, height * grid_size, grid_size):<br/> ctx.strokeRect(x, y, grid_size, grid_size)</p>
+<p># 繪製圓形邊界<br/>def draw_circle():<br/> ctx.fillStyle = "black"<br/> for x in range(width):<br/> for y in range(height):<br/> # 根據圓的公式檢查每個點是否在圓內<br/> if (x - h) ** 2 + (y - k) ** 2 &lt;= r ** 2:<br/> # 計算方格的 x, y 位移<br/> x_pos = x * grid_size<br/> y_pos = y * grid_size<br/> ctx.fillRect(x_pos, y_pos, grid_size, grid_size)</p>
+<p># 初始化畫面<br/>draw_grid()<br/>draw_circle()</p>
+<p>影片</p>
+<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/BWPSJKddV4U" width="560"></iframe></p>
+<p>心得</p>
+<p>這是我第一次使用 Brython讓 Python 可以在瀏覽器中執行的工具。在過去，我更多的是在本地環境使用 Python，但現在我學會了如何將它應用到網頁開發中。利用 <code>canvas</code> API 繪製圖形是一個新的挑戰，特別是在設定畫布的大小、繪製方格和填充顏色方面</p>
+<p></p>
+<p></p><h1>HW 4</h1>
 <h4>主題: 利用 Python 控制機電模擬系統 (20%)</h4>
 <p style="padding-left: 30px;">利用 <a href="https://solvespace.com/">https://solvespace.com/</a> 建立機械系統零組件</p>
 <p style="padding-left: 30px;">利用 <a href="https://www.coppeliarobotics.com/">CoppeliaSim</a> 建立機電模擬系統</p>
@@ -90,8 +108,7 @@ print_number_pyramid(rows)</pre>
 <p style="padding-left: 30px;">範例:</p>
 <p style="padding-left: 60px;"><a href="/downloads/cd2023_pj3ag4_zmq_football_4.7.7z">cd2023_pj3ag4_zmq_football_4.7.7z</a></p>
 <p style="padding-left: 60px;"><a href="https://localhost:9446/downloads/cd2024_2b_g6_steel_ball_platform_nxopen_copsim.7z">cd2024_2b_g6_steel_ball_platform_nxopen_copsim.7z</a></p>
-<p>完成上述流程整理後, 請將 HW4 自評分數輸入 cp2024 自評表單中.</p>
-<h2>HW 4 Exam</h2>
+<p>完成上述流程整理後, 請將 HW4 自評分數輸入 cp2024 自評表單中.</p><h2>HW 4 Exam</h2>
 <p>每六人為一組進行協同程式練習</p>
 <p>透過 Jupyterlab 協同網頁, 輪流指定各組編寫 HW 4 相關的程式練習, 以及網頁內容 (localhost 與 Codespaces 環境)編輯.</p>
 <h1>Final Report</h1>

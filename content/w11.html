@@ -2,7 +2,7 @@
         <head>
         <title>cp_hw</title>
         <meta charset="utf-8">
-<meta property="head" content="H1">
+<meta property="head" content="H3">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
@@ -141,11 +141,25 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">HW 2 Exam << <a href='HW 2 Exam.html'>Previous</a> <a href='HW 3 Exam.html'>Next</a> >> HW 3 Exam<br /><h1>HW 3</h1>
-<h4>主題: Python 的數字、演算法與迴圈 (20%)</h4>
-<p style="padding-left: 30px;">Python 課程教材: <a href="https://www.learnpythonwithjupyter.com/">https://www.learnpythonwithjupyter.com/</a> - PART 4 and Part 5</p>
-<p>完成上述流程整理後, 請將 HW3 自評分數輸入 cp2024 自評表單中.</p>
-<br />HW 2 Exam << <a href='HW 2 Exam.html'>Previous</a> <a href='HW 3 Exam.html'>Next</a> >> HW 3 Exam</div>
+    <div id="tipue_search_content">w6 << <a href='w6.html'>Previous</a> <a href='HW 4.html'>Next</a> >> HW 4<br /><h1>w11</h1>
+<p>第一題</p>
+<p># 10x10 grid size<br/>width = 10<br/>height = 10</p>
+<p># Circle center and radius<br/>h, k = 5, 5 # Circle center (h, k)<br/>r = 4 # Circle radius</p>
+<p># Loop through each point in the grid<br/>for y in range(height):<br/>for x in range(width):<br/># Check if the point is within the circle using the equation<br/>if (x - h) ** 2 + (y - k) ** 2 &lt;= r ** 2:<br/>print("*", end="") # Print "*" if within the circle<br/>else:<br/>print(" ", end="") # Print space if outside the circle<br/>print() # Move to the next line</p>
+<p>第二題</p>
+<p>from browser import document, html, window</p>
+<p># 畫布設置<br/>canvas = html.CANVAS(width=300, height=300)<br/>document &lt;= canvas<br/>ctx = canvas.getContext('2d')</p>
+<p># 方格的大小<br/>grid_size = 30<br/>width = 10 # 方格數量<br/>height = 10</p>
+<p># 圓心與半徑<br/>h, k = 5, 5<br/>r = 4</p>
+<p># 繪製方格<br/>def draw_grid():<br/> ctx.strokeStyle = "gray"<br/> for x in range(0, width * grid_size, grid_size):<br/> for y in range(0, height * grid_size, grid_size):<br/> ctx.strokeRect(x, y, grid_size, grid_size)</p>
+<p># 繪製圓形邊界<br/>def draw_circle():<br/> ctx.fillStyle = "black"<br/> for x in range(width):<br/> for y in range(height):<br/> # 根據圓的公式檢查每個點是否在圓內<br/> if (x - h) ** 2 + (y - k) ** 2 &lt;= r ** 2:<br/> # 計算方格的 x, y 位移<br/> x_pos = x * grid_size<br/> y_pos = y * grid_size<br/> ctx.fillRect(x_pos, y_pos, grid_size, grid_size)</p>
+<p># 初始化畫面<br/>draw_grid()<br/>draw_circle()</p>
+<p>影片</p>
+<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/BWPSJKddV4U" width="560"></iframe></p>
+<p>心得</p>
+<p>這是我第一次使用 Brython讓 Python 可以在瀏覽器中執行的工具。在過去，我更多的是在本地環境使用 Python，但現在我學會了如何將它應用到網頁開發中。利用 <code>canvas</code> API 繪製圖形是一個新的挑戰，特別是在設定畫布的大小、繪製方格和填充顏色方面</p>
+<p></p>
+<p></p><br />w6 << <a href='w6.html'>Previous</a> <a href='HW 4.html'>Next</a> >> HW 4</div>
         
     <!-- footer -->
       <div class="container">

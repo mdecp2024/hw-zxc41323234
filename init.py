@@ -1,8 +1,29 @@
-n = 5  # 總共的行數
-space = '_'
-for i in range(n):  # 對於每一行
-    # 印出空格
-    print(space * (n - i - 1), end='')  # 在每行前面印出空格
-    # 印出星號
-    print('*' * (2 * i + 1))  # 每行印出 2*i + 1 個星號
-    
+import os
+
+"""CMSimfly Initialization setup
+"""
+
+# get current directory, on Windows, back slash at the end of the directory
+_curdir = os.path.join(os.getcwd(), os.path.dirname(__file__))
+# config directory
+config_dir = _curdir + "/config/"
+class Init(object):
+    # uwsgi as static class variable, can be accessed by Init.uwsgi
+    uwsgi = False
+    site_title = "cp_hw"
+    ip = "127.0.0.1"
+    dynamic_port = 9443
+    static_port = 8443
+    def __init__(self):
+        # hope to create downloads and images directories　
+        if not os.path.isdir(_curdir + "/downloads"):
+            try:
+                os.makedirs(_curdir + "/downloads")
+            except:
+                print("mkdir error")
+        if not os.path.isdir(_curdir + "/images"):
+            try:
+                os.makedirs(_curdir + "/images")
+            except:
+                print("mkdir error")
+
