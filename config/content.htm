@@ -83,18 +83,10 @@ print_number_pyramid(rows)</pre>
 </pre>
 <p></p>
 <h3>w11</h3>
-<p>第一題</p>
-<p># 10x10 grid size<br/>width = 10<br/>height = 10</p>
-<p># Circle center and radius<br/>h, k = 5, 5 # Circle center (h, k)<br/>r = 4 # Circle radius</p>
-<p># Loop through each point in the grid<br/>for y in range(height):<br/>for x in range(width):<br/># Check if the point is within the circle using the equation<br/>if (x - h) ** 2 + (y - k) ** 2 &lt;= r ** 2:<br/>print("*", end="") # Print "*" if within the circle<br/>else:<br/>print(" ", end="") # Print space if outside the circle<br/>print() # Move to the next line</p>
-<p>第二題</p>
-<p>from browser import document, html, window</p>
-<p># 畫布設置<br/>canvas = html.CANVAS(width=300, height=300)<br/>document &lt;= canvas<br/>ctx = canvas.getContext('2d')</p>
-<p># 方格的大小<br/>grid_size = 30<br/>width = 10 # 方格數量<br/>height = 10</p>
-<p># 圓心與半徑<br/>h, k = 5, 5<br/>r = 4</p>
-<p># 繪製方格<br/>def draw_grid():<br/> ctx.strokeStyle = "gray"<br/> for x in range(0, width * grid_size, grid_size):<br/> for y in range(0, height * grid_size, grid_size):<br/> ctx.strokeRect(x, y, grid_size, grid_size)</p>
-<p># 繪製圓形邊界<br/>def draw_circle():<br/> ctx.fillStyle = "black"<br/> for x in range(width):<br/> for y in range(height):<br/> # 根據圓的公式檢查每個點是否在圓內<br/> if (x - h) ** 2 + (y - k) ** 2 &lt;= r ** 2:<br/> # 計算方格的 x, y 位移<br/> x_pos = x * grid_size<br/> y_pos = y * grid_size<br/> ctx.fillRect(x_pos, y_pos, grid_size, grid_size)</p>
-<p># 初始化畫面<br/>draw_grid()<br/>draw_circle()</p>
+<p>第一題:<a href="https://mdecp2024.github.io/hw-zxc41323234/content/Brython.html?src=https://gist.githubusercontent.com/zxc41323234/5213042f46fe8b90bbdcecf3312baa09/raw/08f44479c16b4095eb4fb6e4478706583e457a36/w11.py">圓形區域</a></p>
+<p>第二題:<a href="https://mdecp2024.github.io/hw-zxc41323234/content/Brython.html?src=https://gist.githubusercontent.com/zxc41323234/5213042f46fe8b90bbdcecf3312baa09/raw/aabafa32a8d8d3b5660e7b60c2b47a4398090373/w11(2).py">數字列</a></p>
+<p>          <a href="https://mdecp2024.github.io/hw-zxc41323234/content/Brython.html?src=https://gist.githubusercontent.com/zxc41323234/5213042f46fe8b90bbdcecf3312baa09/raw/d3b1622e912d65e8f2dd803f85e0315318158cf5/w11(3)">格子練習</a></p>
+<p></p>
 <p>影片</p>
 <p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/BWPSJKddV4U" width="560"></iframe></p>
 <p>心得</p>
