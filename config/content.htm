@@ -209,7 +209,7 @@ draw_circles(x1, y1, r1, x2, y2, r2, x3, y3, r3)</pre>
 <p></p>
 <p></p><h2>HW 2 Exam</h2>
 <h3>w16_exam1</h3>
-<p><a href="https://mdecp2024.github.io/hw-zxc41323234/content/Brython.html?src=https://gist.githubusercontent.com/zxc41323234/e41655dfa407411bb3b71419fe35c9c7/raw/139b097f8c83b56480cbd717741ff6897642223d/w16">exam2</a></p>
+<p><a href="https://mdecp2024.github.io/hw-zxc41323234/content/Brython.html?src=https://gist.githubusercontent.com/zxc41323234/088befeb261285c0641a479161ec9bd4/raw/267ed9fa3cb47df28d87a09a286615ed8ac46292/w16">exam2</a></p>
 <pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">from browser import document, html
 import math
   
@@ -243,7 +243,7 @@ def draw_axes(ctx, origin_x, origin_y):
     # 标记原点
     ctx.font = "12px Arial"
     ctx.fillStyle = "black"
-    ctx.fillText("(32, 52)", origin_x + 5, origin_y - 5)
+    ctx.fillText("(32, 34)", origin_x + 5, origin_y - 5)
   
 # 绘制不同的形状
 def draw_shapes(ctx):
@@ -305,7 +305,7 @@ def main():
     canvas, ctx = get_canvas_context()
   
     # 设置原点坐标
-    origin_x, origin_y = 32, 52
+    origin_x, origin_y = 32, 34
   
     # 绘制坐标轴和原点标签
     draw_axes(ctx, origin_x, origin_y)
@@ -345,7 +345,7 @@ print_number_pyramid(rows)</pre>
 </pre>
 <p></p>
 <h3>w16_exam2</h3>
-<p><a href="https://mdecp2024.github.io/hw-zxc41323234/content/Brython.html?src=https://gist.githubusercontent.com/zxc41323234/7d2b43745944ef50faba4e69cdae6e32/raw/68445af3bbc88dc4e65563847ee4176d71acfcd7/w16.1">exam3</a></p>
+<p><a href="https://mdecp2024.github.io/hw-zxc41323234/content/Brython.html?src=https://gist.githubusercontent.com/zxc41323234/621afddc8d1845623e196842186ca576/raw/3ef20b0b4659e856ad483ceb55893112623d5439/w16.2">exam3</a></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
 from browser import document as doc
 import math
@@ -363,7 +363,7 @@ def draw_maze(angle_degrees):
     # 设置绘图参数
     pixel_scale = 100
     offset_x = 32 * 2
-    offset_y = 52 * 2
+    offset_y = 34 * 2
     # 整体向右移动的偏移量
     move_right_offset = 200
     angle_radians = math.radians(angle_degrees)
@@ -434,7 +434,7 @@ def label_coordinate(ctx, offset_x, offset_y, text_angle_degrees):
     ctx.save()
     ctx.translate(offset_x, offset_y)
     ctx.rotate(text_angle_radians)
-    ctx.fillText("(32, 52)", 10, - 15)
+    ctx.fillText("(32, 34)", 10, - 15)
     ctx.restore()
   
   
@@ -468,7 +468,7 @@ if __name__ == "__main__":
 <h2>HW 4 Exam</h2>
 <p></p>
 <h3>w16_exam3</h3>
-<p><a href="https://mdecp2024.github.io/hw-zxc41323234/content/Brython.html?src=https://gist.githubusercontent.com/zxc41323234/8d10f510f73b105cdeb4c3e153e0f6f4/raw/66a9e2f986c59b4e36e1a03685b0983a8b27745a/w16.2">exam4</a></p>
+<p><a href="https://mdecp2024.github.io/hw-zxc41323234/content/Brython.html?src=https://gist.githubusercontent.com/zxc41323234/7c402beebf60b75a117381e778b2b3de/raw/3c9115a801bcbcf2185c2514f8936c1b11ff94f6/w16.3">exam4</a></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
 from browser import document as doc
 import math
@@ -486,7 +486,7 @@ def draw_maze(angle_degrees):
     # 设置绘图参数
     pixel_scale = 100
     offset_x = 32 * 2
-    offset_y = 52 * 2
+    offset_y = 34 * 2
     # 整体向右移动的偏移量
     move_right_offset = 200
     angle_radians = math.radians(angle_degrees)
@@ -610,7 +610,7 @@ def label_coordinate(ctx, offset_x, offset_y, text_angle_degrees):
     ctx.save()
     ctx.translate(offset_x, offset_y)
     ctx.rotate(text_angle_radians)
-    ctx.fillText("(32, 52)", 10, - 15)
+    ctx.fillText("(32, 34)", 10, - 15)
     ctx.restore()
    
    
