@@ -2,7 +2,7 @@
         <head>
         <title>cp_hw</title>
         <meta charset="utf-8">
-<meta property="head" content="H1">
+<meta property="head" content="H3">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
@@ -141,20 +141,116 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">w16_exam3 << <a href='w16_exam3.html'>Previous</a> <a href='Brython.html'>Next</a> >> Brython<br /><h1>Final Report</h1>
-<p>期末口頭與書面專題報告 (20%)</p>
-<p>期末口頭專題報告影片:</p>
-<p style="padding-left: 30px;">......</p>
-<p>期末書面專題報告檔案 (pdf):</p>
-<p style="padding-left: 30px;">......</p>
-<p>電腦輔助設計與實習課程總結心得:</p>
-<p style="padding-left: 30px;">......</p>
-<p>期末報告自評成績:</p>
-<p style="padding-left: 30px;">完成上述流程後, 請將 Final Report 自評分數輸入 cp2024 自評表單中.</p>
-<p style="padding-left: 30px;"></p>
-<p style="padding-left: 30px;"></p>
-<p style="padding-left: 30px;"></p>
-<br />w16_exam3 << <a href='w16_exam3.html'>Previous</a> <a href='Brython.html'>Next</a> >> Brython</div>
+    <div id="tipue_search_content">HW 2 Exam << <a href='HW 2 Exam.html'>Previous</a> <a href='HW 3.html'>Next</a> >> HW 3<br /><h1>w16_exam1</h1>
+<p><a href="https://mdecp2024.github.io/hw-zxc41323234/content/Brython.html?src=https://gist.githubusercontent.com/zxc41323234/e41655dfa407411bb3b71419fe35c9c7/raw/139b097f8c83b56480cbd717741ff6897642223d/w16">exam2</a></p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">from browser import document, html
+import math
+  
+# 初始化 HTML，確保 canvas 元素存在
+def setup_canvas():
+    if not document.querySelector("#my_canvas"):
+        canvas = html.CANVAS(id="my_canvas", width=800, height=600)
+        document &lt;= canvas
+  
+# 設置畫布和上下文
+def get_canvas_context():
+    canvas = document["my_canvas"]
+    return canvas, canvas.getContext("2d")
+  
+# 绘制坐标轴和原点标签
+def draw_axes(ctx, origin_x, origin_y):
+    # 绘制 X 轴
+    ctx.beginPath()
+    ctx.moveTo(origin_x, origin_y)
+    ctx.lineTo(500, origin_y)
+    ctx.strokeStyle = "black"
+    ctx.lineWidth = 2
+    ctx.stroke()
+  
+    # 绘制 Y 轴
+    ctx.beginPath()
+    ctx.moveTo(origin_x, origin_y)
+    ctx.lineTo(origin_x, 300)
+    ctx.stroke()
+  
+    # 标记原点
+    ctx.font = "12px Arial"
+    ctx.fillStyle = "black"
+    ctx.fillText("(32, 52)", origin_x + 5, origin_y - 5)
+  
+# 绘制不同的形状
+def draw_shapes(ctx):
+    # 绘制六边形（红色）
+    hex_x, hex_y = 100, 100
+    ctx.beginPath()
+    for i in range(6):
+        angle = i * (2 * math.pi / 6)
+        x = hex_x + 30 * math.cos(angle)
+        y = hex_y + 30 * math.sin(angle)
+        if i == 0:
+            ctx.moveTo(x, y)
+        else:
+            ctx.lineTo(x, y)
+    ctx.closePath()
+    ctx.fillStyle = "red"  # 改為紅色
+    ctx.fill()
+  
+    # 绘制菱形（紫色）
+    ctx.beginPath()
+    ctx.moveTo(160, 70)
+    ctx.lineTo(180, 100)
+    ctx.lineTo(160, 130)
+    ctx.lineTo(140, 100)
+    ctx.closePath()
+    ctx.fillStyle = "purple"  # 改為紫色
+    ctx.fill()
+  
+    # 绘制三角形（绿色）
+    ctx.beginPath()
+    ctx.moveTo(165, 130)
+    ctx.lineTo(205, 130)
+    ctx.lineTo(185, 100)
+    ctx.closePath()
+    ctx.fillStyle = "green"  # 改為綠色
+    ctx.fill()
+  
+    # 绘制圆形（黄色）
+    ctx.beginPath()
+    ctx.arc(230, 100, 30, 0, 2 * math.pi)
+    ctx.fillStyle = "yellow"  # 改為黃色
+    ctx.fill()
+  
+    # 绘制正方形（蓝色）
+    ctx.beginPath()
+    ctx.rect(265, 75, 50, 50)
+    ctx.fillStyle = "blue"  # 改為藍色
+    ctx.fill()
+  
+    # 绘制矩形（橙色）
+    ctx.beginPath()
+    ctx.rect(320, 90, 60, 20)
+    ctx.fillStyle = "orange"  # 改為橙色
+    ctx.fill()
+  
+# 主程式
+def main():
+    setup_canvas()
+    canvas, ctx = get_canvas_context()
+  
+    # 设置原点坐标
+    origin_x, origin_y = 32, 52
+  
+    # 绘制坐标轴和原点标签
+    draw_axes(ctx, origin_x, origin_y)
+  
+    # 绘制各种形状
+    draw_shapes(ctx)
+  
+# 运行主程式
+main()</pre>
+<p></p>
+<p></p>
+<p></p><br />HW 2 Exam << <a href='HW 2 Exam.html'>Previous</a> <a href='HW 3.html'>Next</a> >> HW 3</div>
         
     <!-- footer -->
       <div class="container">
