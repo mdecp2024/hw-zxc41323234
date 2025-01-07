@@ -143,20 +143,32 @@ img.add_border {
         </header>
     <div id="tipue_search_content">w6 << <a href='w6.html'>Previous</a> <a href='w11_hw.html'>Next</a> >> w11_hw<br /><h1>w16_exam2</h1>
 <p><a href="https://mdecp2024.github.io/hw-zxc41323234/content/Brython.html?src=https://gist.githubusercontent.com/zxc41323234/621afddc8d1845623e196842186ca576/raw/3ef20b0b4659e856ad483ceb55893112623d5439/w16.2">exam3</a></p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
+<p></p>
+<!-- 导入 brython 程序库 -->
+<p>
+<script src="./../cmsimde/static/brython.js"></script>
+<script src="./../cmsimde/static/brython_stdlib.js"></script>
+</p>
+<!-- 启动 Brython -->
+<p>
+<script>
+window.onload = function(){
+    brython({debug: 1, pythonpath: ['/static/', './../downloads/py/']});
+}
+</script>
+<!-- 创建一个容器用于插入画布 --></p>
+<div id="brython_div1"></div>
+<p><!-- 创建并设置 Canvas --> <canvas height="1200" id="pyCanvas" width="1200"></canvas>
+<script type="text/python">
+from browser import html
 from browser import document as doc
 import math
-  
-  
+
 def draw_maze(angle_degrees):
-    # 创建和添加画布
-    canvas = html.CANVAS(width=1200, height=1200)
-    brython_div = doc["brython_div1"]
-    brython_div &lt;= canvas
-  
-    # 获取绘图上下文
+    # 获取画布元素并添加到指定 div
+    canvas = doc["pyCanvas"]
     ctx = canvas.getContext("2d")
-  
+    
     # 设置绘图参数
     pixel_scale = 100
     offset_x = 32 * 2
@@ -164,7 +176,7 @@ def draw_maze(angle_degrees):
     # 整体向右移动的偏移量
     move_right_offset = 200
     angle_radians = math.radians(angle_degrees)
-  
+
     # 定义迷宫线条
     lines = [
         ((0, 0), (1, 0)),
@@ -184,40 +196,29 @@ def draw_maze(angle_degrees):
         ((0, 1), (4, 1)),
         ((4, 1), (4, 2)),
     ]
-  
+
     # 旋转并绘制迷宫线条
     ctx.strokeStyle = "blue"
     ctx.lineWidth = 2
     for line in lines:
         start = line[0]
         end = line[1]
-  
+
         # 旋转起点坐标
-        start_x_rotated = start[0] * pixel_scale * math.cos(angle_radians) - start[1] * pixel_scale * math.sin(
-            angle_radians)
-        start_y_rotated = start[0] * pixel_scale * math.sin(angle_radians) + start[1] * pixel_scale * math.cos(
-            angle_radians)
-  
+        start_x_rotated = start[0] * pixel_scale * math.cos(angle_radians) - start[1] * pixel_scale * math.sin(angle_radians)
+        start_y_rotated = start[0] * pixel_scale * math.sin(angle_radians) + start[1] * pixel_scale * math.cos(angle_radians)
+
         # 旋转终点坐标
-        end_x_rotated = end[0] * pixel_scale * math.cos(angle_radians) - end[1] * pixel_scale * math.sin(
-            angle_radians)
-        end_y_rotated = end[0] * pixel_scale * math.sin(angle_radians) + end[1] * pixel_scale * math.cos(
-            angle_radians)
-  
+        end_x_rotated = end[0] * pixel_scale * math.cos(angle_radians) - end[1] * pixel_scale * math.sin(angle_radians)
+        end_y_rotated = end[0] * pixel_scale * math.sin(angle_radians) + end[1] * pixel_scale * math.cos(angle_radians)
+
         ctx.beginPath()
-        ctx.moveTo(
-            offset_x + move_right_offset + start_x_rotated,
-            offset_y + start_y_rotated
-        )
-        ctx.lineTo(
-            offset_x + move_right_offset + end_x_rotated,
-            offset_y + end_y_rotated
-        )
+        ctx.moveTo(offset_x + move_right_offset + start_x_rotated, offset_y + start_y_rotated)
+        ctx.lineTo(offset_x + move_right_offset + end_x_rotated, offset_y + end_y_rotated)
         ctx.stroke()
-  
+
     return ctx, offset_x + move_right_offset, offset_y
-  
-  
+
 def label_coordinate(ctx, offset_x, offset_y, text_angle_degrees):
     text_angle_radians = math.radians(text_angle_degrees)
     ctx.font = "18px Arial"
@@ -228,22 +229,21 @@ def label_coordinate(ctx, offset_x, offset_y, text_angle_degrees):
     # 旋转后的文本位置
     rotated_x = original_x * math.cos(text_angle_radians) - original_y * math.sin(text_angle_radians)
     rotated_y = original_x * math.sin(text_angle_radians) + original_y * math.cos(text_angle_radians)
+    
     ctx.save()
     ctx.translate(offset_x, offset_y)
     ctx.rotate(text_angle_radians)
-    ctx.fillText("(32, 34)", 10, - 15)
+    ctx.fillText("(32, 34)", 10, -15)
     ctx.restore()
-  
-  
-if __name__ == "__main__":
-    # 调整迷宫角度，这里设置为30度，可以根据需要修改
-    maze_angle = 0
-    # 文本角度
-    text_angle = 0
-    ctx, offset_x, offset_y = draw_maze(maze_angle)
-    label_coordinate(ctx, offset_x, offset_y, text_angle)
-</pre>
-<p><br/><br/></p><br />w6 << <a href='w6.html'>Previous</a> <a href='w11_hw.html'>Next</a> >> w11_hw</div>
+
+# 调整迷宫角度，这里设置为30度，可以根据需要修改
+maze_angle = 0
+# 文本角度
+text_angle = 0
+ctx, offset_x, offset_y = draw_maze(maze_angle)
+label_coordinate(ctx, offset_x, offset_y, text_angle)
+</script>
+</p><br />w6 << <a href='w6.html'>Previous</a> <a href='w11_hw.html'>Next</a> >> w11_hw</div>
         
     <!-- footer -->
       <div class="container">

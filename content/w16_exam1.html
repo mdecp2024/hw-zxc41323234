@@ -143,22 +143,41 @@ img.add_border {
         </header>
     <div id="tipue_search_content">HW 2 Exam << <a href='HW 2 Exam.html'>Previous</a> <a href='HW 3.html'>Next</a> >> HW 3<br /><h1>w16_exam1</h1>
 <p><a href="https://mdecp2024.github.io/hw-zxc41323234/content/Brython.html?src=https://gist.githubusercontent.com/zxc41323234/088befeb261285c0641a479161ec9bd4/raw/267ed9fa3cb47df28d87a09a286615ed8ac46292/w16">exam2</a></p>
-<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">from browser import document, html
-import math
+<p><iframe allowfullscreen="allowfullscreen" height="314" src='//www.youtube.com/embed/H2Zw-MXl6qM?si=rnj5Ijxk1uriqxO9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;' width="560"></iframe></p>
+<p></p>
+<!-- 导入 brython 程序库 -->
+<p>
+<script src="./../cmsimde/static/brython.js"></script>
+<script src="./../cmsimde/static/brython_stdlib.js"></script>
+</p>
+<!-- 启动 Brython -->
+<p>
+<script>
+window.onload = function(){
+        brython({debug: 1, pythonpath: ['/static/', './../downloads/py/']});
+    }
+</script>
+<!-- 修改 Canvas 的大小，确保它适合绘制图形 --> <canvas height="600" id="pyCanvas" width="800"></canvas>
+<script type="text/python">
+    # <![CDATA[
+    from browser import document, html
+    import math
   
-# 初始化 HTML，確保 canvas 元素存在
-def setup_canvas():
-    if not document.querySelector("#my_canvas"):
-        canvas = html.CANVAS(id="my_canvas", width=800, height=600)
-        document &lt;= canvas
+    # 初始化 HTML，确保 canvas 元素存在
+    def setup_canvas():
+        if not document.querySelector("#pyCanvas"):  # 修正为正确的 ID
+            canvas = html.CANVAS(id="pyCanvas", width=800, height=600)
+            document <= canvas
   
-# 設置畫布和上下文
-def get_canvas_context():
-    canvas = document["my_canvas"]
-    return canvas, canvas.getContext("2d")
+    setup_canvas()
   
-# 绘制坐标轴和原点标签
-def draw_axes(ctx, origin_x, origin_y):
+    # 设置画布
+    canvas = document["pyCanvas"]
+    ctx = canvas.getContext("2d")
+  
+    # 设置原点
+    origin_x, origin_y = 32, 34
+  
     # 绘制 X 轴
     ctx.beginPath()
     ctx.moveTo(origin_x, origin_y)
@@ -178,9 +197,7 @@ def draw_axes(ctx, origin_x, origin_y):
     ctx.fillStyle = "black"
     ctx.fillText("(32, 34)", origin_x + 5, origin_y - 5)
   
-# 绘制不同的形状
-def draw_shapes(ctx):
-    # 绘制六边形（红色）
+    # 六边形
     hex_x, hex_y = 100, 100
     ctx.beginPath()
     for i in range(6):
@@ -192,65 +209,48 @@ def draw_shapes(ctx):
         else:
             ctx.lineTo(x, y)
     ctx.closePath()
-    ctx.fillStyle = "red"  # 改為紅色
+    ctx.fillStyle = "DarkOrange"
     ctx.fill()
   
-    # 绘制菱形（紫色）
+    # 菱形
     ctx.beginPath()
     ctx.moveTo(160, 70)
     ctx.lineTo(180, 100)
     ctx.lineTo(160, 130)
     ctx.lineTo(140, 100)
     ctx.closePath()
-    ctx.fillStyle = "purple"  # 改為紫色
+    ctx.fillStyle = "DarkCyan"
     ctx.fill()
   
-    # 绘制三角形（绿色）
+    # 三角形
     ctx.beginPath()
     ctx.moveTo(165, 130)
     ctx.lineTo(205, 130)
     ctx.lineTo(185, 100)
     ctx.closePath()
-    ctx.fillStyle = "green"  # 改為綠色
+    ctx.fillStyle = "DodgerBlue"
     ctx.fill()
   
-    # 绘制圆形（黄色）
+    # 圆形
     ctx.beginPath()
     ctx.arc(230, 100, 30, 0, 2 * math.pi)
-    ctx.fillStyle = "yellow"  # 改為黃色
+    ctx.fillStyle = "MediumVioletRed"
     ctx.fill()
   
-    # 绘制正方形（蓝色）
+    # 正方形
     ctx.beginPath()
     ctx.rect(265, 75, 50, 50)
-    ctx.fillStyle = "blue"  # 改為藍色
+    ctx.fillStyle = "Khaki"
     ctx.fill()
   
-    # 绘制矩形（橙色）
+    # 长方形
     ctx.beginPath()
     ctx.rect(320, 90, 60, 20)
-    ctx.fillStyle = "orange"  # 改為橙色
+    ctx.fillStyle = "Navy"
     ctx.fill()
-  
-# 主程式
-def main():
-    setup_canvas()
-    canvas, ctx = get_canvas_context()
-  
-    # 设置原点坐标
-    origin_x, origin_y = 32, 34
-  
-    # 绘制坐标轴和原点标签
-    draw_axes(ctx, origin_x, origin_y)
-  
-    # 绘制各种形状
-    draw_shapes(ctx)
-  
-# 运行主程式
-main()</pre>
-<p></p>
-<p></p>
-<p></p><br />HW 2 Exam << <a href='HW 2 Exam.html'>Previous</a> <a href='HW 3.html'>Next</a> >> HW 3</div>
+    #
+</script>
+</p><br />HW 2 Exam << <a href='HW 2 Exam.html'>Previous</a> <a href='HW 3.html'>Next</a> >> HW 3</div>
         
     <!-- footer -->
       <div class="container">

@@ -210,22 +210,41 @@ draw_circles(x1, y1, r1, x2, y2, r2, x3, y3, r3)</pre>
 <p></p><h2>HW 2 Exam</h2>
 <h3>w16_exam1</h3>
 <p><a href="https://mdecp2024.github.io/hw-zxc41323234/content/Brython.html?src=https://gist.githubusercontent.com/zxc41323234/088befeb261285c0641a479161ec9bd4/raw/267ed9fa3cb47df28d87a09a286615ed8ac46292/w16">exam2</a></p>
-<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">from browser import document, html
-import math
+<p><iframe allowfullscreen="allowfullscreen" height="314" src='//www.youtube.com/embed/H2Zw-MXl6qM?si=rnj5Ijxk1uriqxO9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;' width="560"></iframe></p>
+<p></p>
+<!-- 导入 brython 程序库 -->
+<p>
+<script src="/static/brython.js"></script>
+<script src="/static/brython_stdlib.js"></script>
+</p>
+<!-- 启动 Brython -->
+<p>
+<script>
+window.onload = function(){
+        brython({debug: 1, pythonpath: ['/static/', './../downloads/py/']});
+    }
+</script>
+<!-- 修改 Canvas 的大小，确保它适合绘制图形 --> <canvas height="600" id="pyCanvas" width="800"></canvas>
+<script type="text/python">
+    # <![CDATA[
+    from browser import document, html
+    import math
   
-# 初始化 HTML，確保 canvas 元素存在
-def setup_canvas():
-    if not document.querySelector("#my_canvas"):
-        canvas = html.CANVAS(id="my_canvas", width=800, height=600)
-        document &lt;= canvas
+    # 初始化 HTML，确保 canvas 元素存在
+    def setup_canvas():
+        if not document.querySelector("#pyCanvas"):  # 修正为正确的 ID
+            canvas = html.CANVAS(id="pyCanvas", width=800, height=600)
+            document <= canvas
   
-# 設置畫布和上下文
-def get_canvas_context():
-    canvas = document["my_canvas"]
-    return canvas, canvas.getContext("2d")
+    setup_canvas()
   
-# 绘制坐标轴和原点标签
-def draw_axes(ctx, origin_x, origin_y):
+    # 设置画布
+    canvas = document["pyCanvas"]
+    ctx = canvas.getContext("2d")
+  
+    # 设置原点
+    origin_x, origin_y = 32, 34
+  
     # 绘制 X 轴
     ctx.beginPath()
     ctx.moveTo(origin_x, origin_y)
@@ -245,9 +264,7 @@ def draw_axes(ctx, origin_x, origin_y):
     ctx.fillStyle = "black"
     ctx.fillText("(32, 34)", origin_x + 5, origin_y - 5)
   
-# 绘制不同的形状
-def draw_shapes(ctx):
-    # 绘制六边形（红色）
+    # 六边形
     hex_x, hex_y = 100, 100
     ctx.beginPath()
     for i in range(6):
@@ -259,65 +276,48 @@ def draw_shapes(ctx):
         else:
             ctx.lineTo(x, y)
     ctx.closePath()
-    ctx.fillStyle = "red"  # 改為紅色
+    ctx.fillStyle = "DarkOrange"
     ctx.fill()
   
-    # 绘制菱形（紫色）
+    # 菱形
     ctx.beginPath()
     ctx.moveTo(160, 70)
     ctx.lineTo(180, 100)
     ctx.lineTo(160, 130)
     ctx.lineTo(140, 100)
     ctx.closePath()
-    ctx.fillStyle = "purple"  # 改為紫色
+    ctx.fillStyle = "DarkCyan"
     ctx.fill()
   
-    # 绘制三角形（绿色）
+    # 三角形
     ctx.beginPath()
     ctx.moveTo(165, 130)
     ctx.lineTo(205, 130)
     ctx.lineTo(185, 100)
     ctx.closePath()
-    ctx.fillStyle = "green"  # 改為綠色
+    ctx.fillStyle = "DodgerBlue"
     ctx.fill()
   
-    # 绘制圆形（黄色）
+    # 圆形
     ctx.beginPath()
     ctx.arc(230, 100, 30, 0, 2 * math.pi)
-    ctx.fillStyle = "yellow"  # 改為黃色
+    ctx.fillStyle = "MediumVioletRed"
     ctx.fill()
   
-    # 绘制正方形（蓝色）
+    # 正方形
     ctx.beginPath()
     ctx.rect(265, 75, 50, 50)
-    ctx.fillStyle = "blue"  # 改為藍色
+    ctx.fillStyle = "Khaki"
     ctx.fill()
   
-    # 绘制矩形（橙色）
+    # 长方形
     ctx.beginPath()
     ctx.rect(320, 90, 60, 20)
-    ctx.fillStyle = "orange"  # 改為橙色
+    ctx.fillStyle = "Navy"
     ctx.fill()
-  
-# 主程式
-def main():
-    setup_canvas()
-    canvas, ctx = get_canvas_context()
-  
-    # 设置原点坐标
-    origin_x, origin_y = 32, 34
-  
-    # 绘制坐标轴和原点标签
-    draw_axes(ctx, origin_x, origin_y)
-  
-    # 绘制各种形状
-    draw_shapes(ctx)
-  
-# 运行主程式
-main()</pre>
-<p></p>
-<p></p>
-<p></p><h1>HW 3</h1>
+    #
+</script>
+</p><h1>HW 3</h1>
 <h4>主題: Python 的數字、演算法與迴圈 (20%)</h4>
 <p style="padding-left: 30px;">Python 課程教材: <a href="https://www.learnpythonwithjupyter.com/">https://www.learnpythonwithjupyter.com/</a> - PART 4 and Part 5</p>
 <p>完成上述流程整理後, 請將 HW3 自評分數輸入 cp2024 自評表單中.</p>
@@ -346,20 +346,32 @@ print_number_pyramid(rows)</pre>
 <p></p>
 <h3>w16_exam2</h3>
 <p><a href="https://mdecp2024.github.io/hw-zxc41323234/content/Brython.html?src=https://gist.githubusercontent.com/zxc41323234/621afddc8d1845623e196842186ca576/raw/3ef20b0b4659e856ad483ceb55893112623d5439/w16.2">exam3</a></p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
+<p></p>
+<!-- 导入 brython 程序库 -->
+<p>
+<script src="/static/brython.js"></script>
+<script src="/static/brython_stdlib.js"></script>
+</p>
+<!-- 启动 Brython -->
+<p>
+<script>
+window.onload = function(){
+    brython({debug: 1, pythonpath: ['/static/', './../downloads/py/']});
+}
+</script>
+<!-- 创建一个容器用于插入画布 --></p>
+<div id="brython_div1"></div>
+<p><!-- 创建并设置 Canvas --> <canvas height="1200" id="pyCanvas" width="1200"></canvas>
+<script type="text/python">
+from browser import html
 from browser import document as doc
 import math
-  
-  
+
 def draw_maze(angle_degrees):
-    # 创建和添加画布
-    canvas = html.CANVAS(width=1200, height=1200)
-    brython_div = doc["brython_div1"]
-    brython_div &lt;= canvas
-  
-    # 获取绘图上下文
+    # 获取画布元素并添加到指定 div
+    canvas = doc["pyCanvas"]
     ctx = canvas.getContext("2d")
-  
+    
     # 设置绘图参数
     pixel_scale = 100
     offset_x = 32 * 2
@@ -367,7 +379,7 @@ def draw_maze(angle_degrees):
     # 整体向右移动的偏移量
     move_right_offset = 200
     angle_radians = math.radians(angle_degrees)
-  
+
     # 定义迷宫线条
     lines = [
         ((0, 0), (1, 0)),
@@ -387,40 +399,29 @@ def draw_maze(angle_degrees):
         ((0, 1), (4, 1)),
         ((4, 1), (4, 2)),
     ]
-  
+
     # 旋转并绘制迷宫线条
     ctx.strokeStyle = "blue"
     ctx.lineWidth = 2
     for line in lines:
         start = line[0]
         end = line[1]
-  
+
         # 旋转起点坐标
-        start_x_rotated = start[0] * pixel_scale * math.cos(angle_radians) - start[1] * pixel_scale * math.sin(
-            angle_radians)
-        start_y_rotated = start[0] * pixel_scale * math.sin(angle_radians) + start[1] * pixel_scale * math.cos(
-            angle_radians)
-  
+        start_x_rotated = start[0] * pixel_scale * math.cos(angle_radians) - start[1] * pixel_scale * math.sin(angle_radians)
+        start_y_rotated = start[0] * pixel_scale * math.sin(angle_radians) + start[1] * pixel_scale * math.cos(angle_radians)
+
         # 旋转终点坐标
-        end_x_rotated = end[0] * pixel_scale * math.cos(angle_radians) - end[1] * pixel_scale * math.sin(
-            angle_radians)
-        end_y_rotated = end[0] * pixel_scale * math.sin(angle_radians) + end[1] * pixel_scale * math.cos(
-            angle_radians)
-  
+        end_x_rotated = end[0] * pixel_scale * math.cos(angle_radians) - end[1] * pixel_scale * math.sin(angle_radians)
+        end_y_rotated = end[0] * pixel_scale * math.sin(angle_radians) + end[1] * pixel_scale * math.cos(angle_radians)
+
         ctx.beginPath()
-        ctx.moveTo(
-            offset_x + move_right_offset + start_x_rotated,
-            offset_y + start_y_rotated
-        )
-        ctx.lineTo(
-            offset_x + move_right_offset + end_x_rotated,
-            offset_y + end_y_rotated
-        )
+        ctx.moveTo(offset_x + move_right_offset + start_x_rotated, offset_y + start_y_rotated)
+        ctx.lineTo(offset_x + move_right_offset + end_x_rotated, offset_y + end_y_rotated)
         ctx.stroke()
-  
+
     return ctx, offset_x + move_right_offset, offset_y
-  
-  
+
 def label_coordinate(ctx, offset_x, offset_y, text_angle_degrees):
     text_angle_radians = math.radians(text_angle_degrees)
     ctx.font = "18px Arial"
@@ -431,22 +432,21 @@ def label_coordinate(ctx, offset_x, offset_y, text_angle_degrees):
     # 旋转后的文本位置
     rotated_x = original_x * math.cos(text_angle_radians) - original_y * math.sin(text_angle_radians)
     rotated_y = original_x * math.sin(text_angle_radians) + original_y * math.cos(text_angle_radians)
+    
     ctx.save()
     ctx.translate(offset_x, offset_y)
     ctx.rotate(text_angle_radians)
-    ctx.fillText("(32, 34)", 10, - 15)
+    ctx.fillText("(32, 34)", 10, -15)
     ctx.restore()
-  
-  
-if __name__ == "__main__":
-    # 调整迷宫角度，这里设置为30度，可以根据需要修改
-    maze_angle = 0
-    # 文本角度
-    text_angle = 0
-    ctx, offset_x, offset_y = draw_maze(maze_angle)
-    label_coordinate(ctx, offset_x, offset_y, text_angle)
-</pre>
-<p><br/><br/></p><h3>w11_hw</h3>
+
+# 调整迷宫角度，这里设置为30度，可以根据需要修改
+maze_angle = 0
+# 文本角度
+text_angle = 0
+ctx, offset_x, offset_y = draw_maze(maze_angle)
+label_coordinate(ctx, offset_x, offset_y, text_angle)
+</script>
+</p><h3>w11_hw</h3>
 <p>第一題:<a href="https://mdecp2024.github.io/hw-zxc41323234/content/Brython.html?src=https://gist.githubusercontent.com/zxc41323234/5213042f46fe8b90bbdcecf3312baa09/raw/08f44479c16b4095eb4fb6e4478706583e457a36/w11.py">圓形區域</a></p>
 <p>第二題:<a href="https://mdecp2024.github.io/hw-zxc41323234/content/Brython.html?src=https://gist.githubusercontent.com/zxc41323234/5213042f46fe8b90bbdcecf3312baa09/raw/aabafa32a8d8d3b5660e7b60c2b47a4398090373/w11(2).py">數字列</a></p>
 <p>          <a href="https://mdecp2024.github.io/hw-zxc41323234/content/Brython.html?src=https://gist.githubusercontent.com/zxc41323234/5213042f46fe8b90bbdcecf3312baa09/raw/d3b1622e912d65e8f2dd803f85e0315318158cf5/w11(3)">格子練習</a></p>
@@ -468,103 +468,101 @@ if __name__ == "__main__":
 <h2>HW 4 Exam</h2>
 <p></p>
 <h3>w16_exam3</h3>
-<p><a href="https://mdecp2024.github.io/hw-zxc41323234/content/Brython.html?src=https://gist.githubusercontent.com/zxc41323234/8d10f510f73b105cdeb4c3e153e0f6f4/raw/66a9e2f986c59b4e36e1a03685b0983a8b27745a/w16.2">exam4</a></p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
+<p><a href="https://mdecp2024.github.io/hw-zxc41323234/content/Brython.html?src=https://gist.githubusercontent.com/zxc41323234/7c402beebf60b75a117381e778b2b3de/raw/3c9115a801bcbcf2185c2514f8936c1b11ff94f6/w16.3">exam4</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"></pre>
+<!-- 导入 brython 程序库 -->
+<script src="/static/brython.js"></script>
+<script src="/static/brython_stdlib.js"></script>
+<!-- 启动 Brython -->
+<script>
+window.onload = function(){
+    brython({debug: 1, pythonpath: ['/static/', './../downloads/py/']});
+}
+</script>
+<!-- 创建一个容器用于插入画布 -->
+<div id="brython_div1"></div>
+<!-- 创建并设置 Canvas -->
+<p><canvas height="1200" id="pyCanvas" width="1200"></canvas></p>
+<script type="text/python">
+from browser import html
 from browser import document as doc
 import math
-   
-   
+
 def draw_maze(angle_degrees):
-    # 创建和添加画布
-    canvas = html.CANVAS(width=1200, height=1200)
-    brython_div = doc["brython_div1"]
-    brython_div &lt;= canvas
-   
-    # 获取绘图上下文
+    # 获取画布元素并添加到指定 div
+    canvas = doc["pyCanvas"]
     ctx = canvas.getContext("2d")
-   
+    
     # 设置绘图参数
     pixel_scale = 100
     offset_x = 32 * 2
-    offset_y = 52 * 2
+    offset_y = 34 * 2
     # 整体向右移动的偏移量
     move_right_offset = 200
     angle_radians = math.radians(angle_degrees)
-   
+
     # 定义迷宫线条
     lines = [
-        ((0, 0), (1, 0)),
-        ((2, 0), (5, 0)),
+        ((0, 0), (2, 0)),
+        ((3, 0), (5, 0)),
         ((5, 0), (5, 5)),
         ((3, 5), (5, 5)),
         ((4, 5), (4, 3)),
-        ((2, 3), (4, 3)),
-        ((1, 3), (1, 5)),
-        ((3, 3), (3, 2)),
-        ((0, 0), (0, 5)),
-        ((0, 5), (2, 5)),
-        ((2, 5), (2, 4)),
-        ((2, 4), (3, 4)),
-        ((0, 2), (1, 2)),
-        ((2, 2), (2, 1)),
-        ((0, 1), (4, 1)),
+        ((1, 3), (4, 3)),
+        ((3, 2), (3, 3)),
+        ((1, 1), (4, 1)),
         ((4, 1), (4, 2)),
+        ((2, 1), (2, 2)),
+        ((2, 4), (3, 4)),
+        ((2, 4), (2, 5)),
+        ((1, 3), (1, 4)),
+        ((0, 2), (2, 2)),
+        ((0, 5), (2, 5)),
+        ((0, 0), (0, 5)),
     ]
-   
+
     # 旋转并绘制迷宫线条
     ctx.strokeStyle = "blue"
     ctx.lineWidth = 2
     for line in lines:
         start = line[0]
         end = line[1]
-   
+
         # 旋转起点坐标
-        start_x_rotated = start[0] * pixel_scale * math.cos(angle_radians) - start[1] * pixel_scale * math.sin(
-            angle_radians)
-        start_y_rotated = start[0] * pixel_scale * math.sin(angle_radians) + start[1] * pixel_scale * math.cos(
-            angle_radians)
-   
+        start_x_rotated = start[0] * pixel_scale * math.cos(angle_radians) - start[1] * pixel_scale * math.sin(angle_radians)
+        start_y_rotated = start[0] * pixel_scale * math.sin(angle_radians) + start[1] * pixel_scale * math.cos(angle_radians)
+
         # 旋转终点坐标
-        end_x_rotated = end[0] * pixel_scale * math.cos(angle_radians) - end[1] * pixel_scale * math.sin(
-            angle_radians)
-        end_y_rotated = end[0] * pixel_scale * math.sin(angle_radians) + end[1] * pixel_scale * math.cos(
-            angle_radians)
-   
+        end_x_rotated = end[0] * pixel_scale * math.cos(angle_radians) - end[1] * pixel_scale * math.sin(angle_radians)
+        end_y_rotated = end[0] * pixel_scale * math.sin(angle_radians) + end[1] * pixel_scale * math.cos(angle_radians)
+
         ctx.beginPath()
-        ctx.moveTo(
-            offset_x + move_right_offset + start_x_rotated,
-            offset_y + start_y_rotated
-        )
-        ctx.lineTo(
-            offset_x + move_right_offset + end_x_rotated,
-            offset_y + end_y_rotated
-        )
+        ctx.moveTo(offset_x + move_right_offset + start_x_rotated, offset_y + start_y_rotated)
+        ctx.lineTo(offset_x + move_right_offset + end_x_rotated, offset_y + end_y_rotated)
         ctx.stroke()
-   
+
     return ctx, offset_x + move_right_offset, offset_y, pixel_scale
-   
-   
+
 def find_path():
-    # 简单的路径示例，这里假设的路径，实际需要更复杂的算法
-    # 为了维持原本迷宫路线，这里路径假设不破坏迷宫已有路线
     path = [
-        ((1.5, 0), (1.5, 0.5)),
-        ((1.5, 0.5), (4.5, 0.5)),
+        ((2.5, 0), (2.5, 0.5)),
+        ((2.5, 0.5), (4.5, 0.5)),
         ((4.5, 0.5), (4.5, 2.5)),
         ((4.5, 2.5), (3.5, 2.5)),
         ((3.5, 2.5), (3.5, 1.5)),
         ((3.5, 1.5), (2.5, 1.5)),
         ((2.5, 1.5), (2.5, 2.5)),
-        ((2.5, 2.5), (1.5, 2.5)),
-        ((1.5, 2.5), (1.5, 3.5)),
+        ((2.5, 2.5), (0.5, 2.5)),
+        ((0.5, 2.5), (0.5, 4.5)),
+        ((0.5, 4.5), (1.5, 4.5)),
+        ((1.5, 4.5), (1.5, 3.5)),
         ((1.5, 3.5), (3.5, 3.5)),
         ((3.5, 3.5), (3.5, 4.5)),
         ((3.5, 4.5), (2.5, 4.5)),
         ((2.5, 4.5), (2.5, 5))
     ]
     return path
-   
-   
+
 def draw_path(ctx, offset_x, offset_y, angle_degrees, path, pixel_scale):
     angle_radians = math.radians(angle_degrees)
     ctx.strokeStyle = "red"
@@ -572,31 +570,20 @@ def draw_path(ctx, offset_x, offset_y, angle_degrees, path, pixel_scale):
     for line in path:
         start = line[0]
         end = line[1]
-   
+
         # 旋转起点坐标
-        start_x_rotated = start[0] * pixel_scale * math.cos(angle_radians) - start[1] * pixel_scale * math.sin(
-            angle_radians)
-        start_y_rotated = start[0] * pixel_scale * math.sin(angle_radians) + start[1] * pixel_scale * math.cos(
-            angle_radians)
-   
+        start_x_rotated = start[0] * pixel_scale * math.cos(angle_radians) - start[1] * pixel_scale * math.sin(angle_radians)
+        start_y_rotated = start[0] * pixel_scale * math.sin(angle_radians) + start[1] * pixel_scale * math.cos(angle_radians)
+
         # 旋转终点坐标
-        end_x_rotated = end[0] * pixel_scale * math.cos(angle_radians) - end[1] * pixel_scale * math.sin(
-            angle_radians)
-        end_y_rotated = end[0] * pixel_scale * math.sin(angle_radians) + end[1] * pixel_scale * math.cos(
-            angle_radians)
-   
+        end_x_rotated = end[0] * pixel_scale * math.cos(angle_radians) - end[1] * pixel_scale * math.sin(angle_radians)
+        end_y_rotated = end[0] * pixel_scale * math.sin(angle_radians) + end[1] * pixel_scale * math.cos(angle_radians)
+
         ctx.beginPath()
-        ctx.moveTo(
-            offset_x + start_x_rotated,
-            offset_y + start_y_rotated
-        )
-        ctx.lineTo(
-            offset_x + end_x_rotated,
-            offset_y + end_y_rotated
-        )
+        ctx.moveTo(offset_x + start_x_rotated, offset_y + start_y_rotated)
+        ctx.lineTo(offset_x + end_x_rotated, offset_y + end_y_rotated)
         ctx.stroke()
-   
-   
+
 def label_coordinate(ctx, offset_x, offset_y, text_angle_degrees):
     text_angle_radians = math.radians(text_angle_degrees)
     ctx.font = "18px Arial"
@@ -610,21 +597,18 @@ def label_coordinate(ctx, offset_x, offset_y, text_angle_degrees):
     ctx.save()
     ctx.translate(offset_x, offset_y)
     ctx.rotate(text_angle_radians)
-    ctx.fillText("(32, 52)", 10, - 15)
+    ctx.fillText("(32, 34)", 10, -15)
     ctx.restore()
-   
-   
-if __name__ == "__main__":
-    # 调整迷宫角度，这里设置为30度，可以根据需要修改
-    maze_angle = 0
-    # 文本角度
-    text_angle = 0
-    ctx, offset_x, offset_y, pixel_scale = draw_maze(maze_angle)
-    path = find_path()
-    draw_path(ctx, offset_x, offset_y, maze_angle, path, pixel_scale)
-    label_coordinate(ctx, offset_x, offset_y, text_angle)
-</pre>
-<p></p><h1>Final Report</h1>
+
+# 调整迷宫角度，设置为0度
+maze_angle = 0
+# 文本角度
+text_angle = 0
+ctx, offset_x, offset_y, pixel_scale = draw_maze(maze_angle)
+path = find_path()
+draw_path(ctx, offset_x, offset_y, maze_angle, path, pixel_scale)
+label_coordinate(ctx, offset_x, offset_y, text_angle)
+</script><h1>Final Report</h1>
 <p>期末口頭與書面專題報告 (20%)</p>
 <p>期末口頭專題報告影片:</p>
 <p style="padding-left: 30px;">......</p>
